@@ -1,0 +1,153 @@
+
+/** 
+  I'm using mobile first
+
+
+  
+  /** Header styles **/
+ 
+ 
+  /** Container body styles **/
+  .container-body{
+    
+  }
+  
+  /** Form styles **/
+  .form-search{
+    text-align: center;
+  }
+  input[type="search"] {
+    border: 1px solid;
+    border-radius: 50px;
+    font-family: 'Roboto', FontAwesome;
+    outline: none;
+    padding: 5px 15px;
+  }
+  
+  /* Card styles */
+  .container-twitts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 100%;
+  }
+  .card{
+    margin: 20px 30px 40px 30px;
+  }
+  .card-twitt{
+    border-radius: 10px;
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2), 0 -6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px 20px 60px 20px;
+    position: relative;
+    width: 200px;
+  }
+  .card-head{
+    align-items: center;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+  }
+  .img-user-twitt{
+    border-radius: 10px;
+    width: 50px;
+    height: auto;
+  }
+  .info-user-header{
+    padding: 0 5px;
+  }
+  .info-user-header h2{
+    color: var(--clr-primary-gray);
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  .info-user-header h3{
+    color: var(--clr-primary-gray-light);
+    font-weight: 300;
+    font-size: 0.8em;
+  }
+  
+  .card-body{
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+  .card-body p{
+    color: var(--clr-primary-gray-light);
+    text-align: justify;
+  }
+  .card-actions-icons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .card-circle{
+    background-color: var(--clr-primary-blue);
+    clip-path: circle(60.0% at 50% 100%);
+    height: 60px;
+    margin: auto;
+    width: 100px;
+    position: absolute;
+    bottom: -10px;
+    right: 0%;
+    left: 0%;
+  }
+  .card-icon-twitter {
+    bottom: -18px;
+    font-size: 40px;
+    left: 0%;
+    margin: auto;
+    position: absolute;
+    right: 0%;
+    text-align: center;
+    z-index: 100;
+  }
+  .card-icon-twitter i{
+    color: white;
+  }
+  .card-more-information{
+    border-radius: 0 0 10px 10px;
+    margin: 0px 20px;
+    width: 180px;
+    position: absolute;
+    background-color: var(--clr-primary-blue);
+    padding: 10px;
+    text-align: right;
+    opacity: 1;
+    z-index: 50;
+  }
+  .card-more-information  p, .card-more-information  i{
+    color: white;
+    font-size: 0.8em;
+  }
+  .card-more-information:hover{
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    cursor: pointer;
+  }
+  .card-more-information h4{
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 8px 0;
+    padding: 5px;
+    text-align: left;
+  }
+  .card-more-information p{
+    text-align: justify;
+    font-size: 0.9rem;
+  }
+  
+  @media (min-width: 767px){
+    .header{
+      padding-top: 25px;
+    }
+    .form-search{
+      text-align: left;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 5%;
+    }
+  }
