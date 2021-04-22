@@ -48,17 +48,17 @@ function Form() {
     }
 
     const handleChange = async event => {
-        //console.log(event.target.value)
         await dispatch(obtenerTweetsAction())
         await dispatch(buscarPalabraAction(event.target.value))
     }
 
     return (
         <FormSearch onSubmit={handleForm}>
-            <label>Tweet Search: </label>
+            <label htmlFor="form">Tweet Search: </label>
                 <div>
                     <SearchIcon icon={faSearch} />
-                    <input 
+                    <input
+                        id="form"
                         type="search"
                         placeholder="Search"
                         onChange={handleChange}

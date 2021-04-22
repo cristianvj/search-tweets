@@ -23,9 +23,9 @@ const CardHead = styled.div`
     padding-bottom: 15px;
 `
 const UserTweet = styled.img`
-    border-radius: 10px;
-    width: 50px;
-    height: auto;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
 `
 const InfoUserHeader = styled.div`
     padding: 0 5px;
@@ -104,8 +104,10 @@ const IconTwitterCard = styled(FontAwesomeIcon)`
 
 function CardTweet({tweet}) {
     
+    const {name, nikname, mensajeTweet, imgURL, date, like} = tweet
+    
     const [open, setOpen] = useState(false)
-    const [like, setLike] = useState(false)
+    const [stateLike, setLike] = useState(like)
 
     useEffect(() => {
 
@@ -117,10 +119,9 @@ function CardTweet({tweet}) {
     }
 
     const handleLike = () => {
-        like ? setLike(false) : setLike(true)
+        stateLike ? setLike(false) : setLike(true)
     }
 
-    const {name, nikname, mensajeTweet, imgURL, date} = tweet
 
     return (
         <Card>
@@ -143,7 +144,7 @@ function CardTweet({tweet}) {
                     <FontAwesomeIcon 
                         onClick={handleLike}
                         icon={faStar} 
-                        className={ `${like ? "like" : null}` } 
+                        className={ `${stateLike ? "like" : null}` } 
                     />
                 </CardActionsIcons>
                 <CardIconTwitter>

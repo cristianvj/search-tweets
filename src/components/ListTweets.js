@@ -20,6 +20,7 @@ function ListTweets() {
     useEffect(()=>{
         const cargarTweets = () => dispatch(obtenerTweetsAction())
         cargarTweets()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     const {tweets, error, loading} = useSelector(state => state.tweets)

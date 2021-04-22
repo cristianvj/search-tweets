@@ -1,5 +1,4 @@
 import {
-  INICIAR_DESCARGA_TWEETS,
   DESCARGA_TWEETS_EXITO,
   DESCARGA_TWEETS_ERROR,
   OBTENER_PALABRA_BUSCAR,
@@ -10,7 +9,7 @@ export function obtenerTweetsAction() {
   return async (dispatch) => {
     dispatch(descargarTweets())
     try {
-      const respuesta = await clienteAxios.get('/tweets')
+      const respuesta = await clienteAxios.get('https://606d05d1603ded0017502e69.mockapi.io/vecindario/tweets')
       dispatch(descargaTweetsExitosa(respuesta.data))
     } catch (error) {
         console.log(error)
