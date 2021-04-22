@@ -20,31 +20,24 @@ function ListTweets() {
     useEffect(()=>{
         const cargarTweets = () => dispatch(obtenerTweetsAction())
         cargarTweets()
-
-        if (!window.google) {
-            const script = document.createElement(`script`)
-            script.type = `text/javascript`
-            script.src =
-              `https://maps.google.com/maps/api/js?key=` +
-              process.env.GATSBY_GOOGLE_MAPS_API_KEY
-            const headScript = document.getElementsByTagName(`script`)[0]
-            headScript.parentNode.insertBefore(script, headScript)
-            script.addEventListener(`load`, 'onLoad')
-            return () => script.removeEventListener(`load`, 'onLoad')
-          } else alert('cargo')
-
     }, [])
     
-    const tweets = useSelector(state => state.tweets.tweets)
-    console.log(tweets);
+    const {tweets, error, loading} = useSelector(state => state.tweets)
 
     return (
+        
         <ContainerTweets>
-            {tweets.length === 0 ? 'No hay productos' : (
-                tweets.map(tweet => (
-                    <CardTweet key={tweet.id} tweet={tweet} />
-                ))
-            )}
+            {
+                error ? `Ocurrió un error con la conexión en la API, asegúrese que este corriendo en el puerto 4000. Ejecute >>
+                json-server twitterdb.json --port 4000` :
+                loading ? 'Cargando tweets' :
+                tweets.length === 0 ? 'No se encontró tweets que coincidan con su búsqueda' :
+                (
+                    tweets.map(tweet => (
+                        <CardTweet key={tweet.id} tweet={tweet} />
+                    ))
+                )
+            }
         </ContainerTweets>
     )
 }

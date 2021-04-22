@@ -2,6 +2,7 @@ import {
   INICIAR_DESCARGA_TWEETS,
   DESCARGA_TWEETS_EXITO,
   DESCARGA_TWEETS_ERROR,
+  OBTENER_PALABRA_BUSCAR,
 } from '../types'
 import clienteAxios from '../config/axios'
 
@@ -31,4 +32,16 @@ const descargaTweetsExitosa = tweets => ({
 const descargaTweetsError = () => ({
   type: DESCARGA_TWEETS_ERROR,
   payload: true
+})
+
+//Seleccionar los tweets que coinciden con la palabra
+export function buscarPalabraAction(palabra){
+  return async(dispatch)=>{
+    dispatch(obtenerPalabraBuscar(palabra))
+  }
+}
+
+const obtenerPalabraBuscar = palabra =>({
+  type: OBTENER_PALABRA_BUSCAR,
+  payload: palabra
 })

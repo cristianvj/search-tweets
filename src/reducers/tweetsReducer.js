@@ -2,12 +2,13 @@ import {
   INICIAR_DESCARGA_TWEETS,
   DESCARGA_TWEETS_EXITO,
   DESCARGA_TWEETS_ERROR,
+  OBTENER_PALABRA_BUSCAR,
 } from '../types'
 
 const initialState = {
   tweets: [],
   error: null,
-  loading: false,
+  loading: true,
 }
 
 export default function (state = initialState, action){
@@ -29,6 +30,12 @@ export default function (state = initialState, action){
         ...state,
         loading: false,
         error: action.payload,
+      }
+    case OBTENER_PALABRA_BUSCAR:
+      return {
+        ...state,
+        tweets: state.tweets.filter(tweet=>tweet.mensajeTweet.toLowerCase().includes(action.payload.toLowerCase())
+        )
       }
     default:
       return state

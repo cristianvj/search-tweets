@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import {useDispatch} from 'react-redux'
+import {buscarPalabraAction, obtenerTweetsAction} from '../actions/tweetActions'
 
 const FormSearch = styled.form`
     text-align: center;
@@ -37,14 +39,18 @@ const SearchIcon = styled(FontAwesomeIcon)`
     font-size: 17px;
 `
 
-function form() {
+function Form() {
 
+    const dispatch = useDispatch()
+    
     const handleForm = e => {
         e.preventDefault()
     }
 
-    const handleChange = event => {
-        console.log(event.target.value)
+    const handleChange = async event => {
+        //console.log(event.target.value)
+        await dispatch(obtenerTweetsAction())
+        await dispatch(buscarPalabraAction(event.target.value))
     }
 
     return (
@@ -62,4 +68,4 @@ function form() {
     )
 }
 
-export default form
+export default Form
